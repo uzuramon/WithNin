@@ -23,5 +23,15 @@
     <string name="character_default_name">作兵衛</string>
     <string name="character_default_value">sakube</string>
     <string name="character_random">random</string>
+
+    <string name="ringtone_pref">ringtone_pref</string>
+    <string name="ringtone_default_name">サイレント</string>
+    <string name="ringtone_default_value">""</string>
+
+    <string name="weather_pref">weather_pref</string>
+    <string name="weather_list_name">weather_list_name</string>
+    <string name="weather_list_value">weather_list_value</string>
+    <string name="weather_default_name">神戸</string>
+    <string name="weather_default_value">82</string>
     
 </resources>

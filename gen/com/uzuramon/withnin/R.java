@@ -56,8 +56,8 @@ public final class R {
         public static final int sannosuke_title_night=0x7f050026;
         public static final int sannosuke_title_nintama=0x7f050027;
         public static final int sannosuke_weather=0x7f050013;
-        public static final int wether_list_preference=0x7f050002;
-        public static final int wethervalues_list_preference=0x7f050003;
+        public static final int weather_list_name=0x7f050002;
+        public static final int weather_list_value=0x7f050003;
     }
     public static final class attr {
     }
@@ -96,10 +96,18 @@ public final class R {
         public static final int character_random=0x7f060010;
         public static final int log=0x7f060004;
         public static final int menu_settings=0x7f060001;
+        public static final int ringtone_default_name=0x7f060012;
+        public static final int ringtone_default_value=0x7f060013;
+        public static final int ringtone_pref=0x7f060011;
         public static final int timing=0x7f060005;
         public static final int today_name=0x7f060002;
         public static final int tomorrow_name=0x7f060003;
         public static final int weather=0x7f060006;
+        public static final int weather_default_name=0x7f060017;
+        public static final int weather_default_value=0x7f060018;
+        public static final int weather_list_name=0x7f060015;
+        public static final int weather_list_value=0x7f060016;
+        public static final int weather_pref=0x7f060014;
     }
     public static final class style {
         /** 

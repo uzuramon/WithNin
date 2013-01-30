@@ -36,7 +36,7 @@ public class MyAlarmService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags,int startId) {
-		super.onStart(intent, startId);
+		super.onStartCommand(intent, flags, startId);
 		
 		Log.v(getString(R.string.log),"MyAlarmReceiver　onStartCommand");
 	    
@@ -67,7 +67,12 @@ public class MyAlarmService extends Service {
     	//インテントの設定
     	Intent alarmBroadcast = new Intent();
 
-    	alarmBroadcast.putExtra(getString(R.string.weather),WeatherUpdate(Integer.parseInt(p.getString("wether_list","82")),timing));
+    	if((timing.equals(getString(R.string.alarm_morning))) || (timing.equals(getString(R.string.alarm_night)))){
+        	alarmBroadcast.putExtra(getString(R.string.weather),WeatherUpdate(Integer.parseInt(p.getString(getString(R.string.weather_pref),getString(R.string.weather_default_value))),timing));
+    	}else{
+        	alarmBroadcast.putExtra(getString(R.string.weather),"");
+    	}
+    	
     	alarmBroadcast.putExtra(getString(R.string.timing),timing);
         
         alarmBroadcast.setAction("MyAlarmAction");//独自のメッセージを送信します
@@ -88,7 +93,7 @@ public class MyAlarmService extends Service {
 		Log.v(getString(R.string.log),"WeatherUpdate　start" + timing);
 
     	String day = "";
-    	if(timing.equals("morning")){
+    	if(timing.equals(getString(R.string.alarm_morning))){
     		day="today";
     	}else{
     		day="tomorrow";

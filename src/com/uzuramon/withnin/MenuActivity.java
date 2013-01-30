@@ -19,13 +19,15 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.util.Log;
 import android.widget.TimePicker;
 
+@SuppressWarnings("deprecation")
 public class MenuActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
 	//設定
 	private SharedPreferences p;
 	private Context c;
 	
-    @Override
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
 		Log.v(getString(R.string.log),"MenuActivity　setText start");
 
@@ -65,7 +67,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
         prefChar.setOnPreferenceChangeListener(listPreference_OnPreferenceChangeListener);  
 
     	//キャラクター設定
-        ListPreference prefWether = (ListPreference)findPreference("wether_list");   
+        ListPreference prefWether = (ListPreference)findPreference(getString(R.string.weather_pref));   
         // リスナーを設定する  
         prefWether.setOnPreferenceChangeListener(listPreference_OnPreferenceChangeListener);  
     	
@@ -76,7 +78,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     	setClickListener("led_checkbox");
 
     	//通知音設定
-        RingtonePreference pref = (RingtonePreference)findPreference("ringtone_list");   
+        RingtonePreference pref = (RingtonePreference)findPreference(getString(R.string.ringtone_pref));   
         // リスナーを設定する  
         pref.setOnPreferenceChangeListener(ringtonePreference_OnPreferenceChangeListener);  
 
@@ -84,7 +86,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     }
     
     //クリック待ち
-    private void setClickListener(String prefName){
+	private void setClickListener(String prefName){
     	Preference pref = this.findPreference(prefName);
     	pref.setOnPreferenceClickListener(onPreferenceClickListener);
     }
@@ -211,9 +213,9 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     private void alermCheckGet(String alermTiming){
     	CheckBoxPreference checkbox_preference = (CheckBoxPreference)getPreferenceScreen().findPreference(alermTiming + "_checkbox");
     	if (checkbox_preference.isChecked()) {
-    		checkbox_preference.setSummary("通知する");
+    		checkbox_preference.setSummary("お知らせする");
     	} else {
-    		checkbox_preference.setSummary("通知しない");
+    		checkbox_preference.setSummary("お知らせしない");
     	}
     }
     
@@ -260,8 +262,8 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
 
     //通知音読み込み
     private void ringtonePreference_OnPreferenceChange(){     
-    	Preference ring_preference = (Preference)getPreferenceScreen().findPreference("ringtone_list");
-    	String url = p.getString("ringtone_list", ""); 
+    	Preference ring_preference = (Preference)getPreferenceScreen().findPreference(getString(R.string.ringtone_pref));
+    	String url = p.getString(getString(R.string.ringtone_pref), getString(R.string.ringtone_default_value)); 
     	Uri uri;  
         Ringtone ringtone;  
         if ("".equals(url)) {
@@ -285,17 +287,20 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     private boolean listPreference_OnPreferenceChange(Preference preference, Object newValue){
     	String nin = (String)newValue; 
         String ninX = "";
-        if(nin.equals("sakube")){
-        	ninX = "作兵衛";
-        }else if(nin.equals("samon")){
-        	ninX = "左門";
-        }else if(nin.equals("sannosuke")){
-        	ninX = "三之助";
-        }else if(nin.equals("random")){
-        	ninX = "ランダム";
-        }else{
+        String[] charName = getResources().getStringArray(R.array.character_list_name);
+        String[] charValue = getResources().getStringArray(R.array.character_list_value);
+
+        try{
         	ninX = wetherArray[Integer.parseInt(nin)];
+        }catch(NumberFormatException e){
+        	for (int j=0 ; j<charValue.length ; j++) {
+        		if (charValue[j].equals(nin)){
+        			ninX = charName[j];
+        			break;
+        		}
+        	}
         }
+
         preference.setSummary(ninX);  
         return true;
     }
@@ -307,7 +312,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     }
 
     private void listPreference_OnPreferenceChange_wether(){     
-    	ListPreference list_preference = (ListPreference)getPreferenceScreen().findPreference("wether_list");
+    	ListPreference list_preference = (ListPreference)getPreferenceScreen().findPreference(getString(R.string.weather_pref));
     	list_preference.setSummary(list_preference.getEntry());
     }
     

@@ -13,7 +13,7 @@
         <item>random</item>
     </string-array>
     
-    <string-array name="wether_list_preference">
+    <string-array name="weather_list_name">
 <item>稚内</item>
 <item>旭川</item>
 <item>留萌</item>
@@ -157,7 +157,7 @@
 <item>石垣島</item>
 <item>与那国島</item>
     </string-array>
-    <string-array name="wethervalues_list_preference">
+    <string-array name="weather_list_value">
 <item>1</item>
 <item>2</item>
 <item>3</item>

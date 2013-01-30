@@ -45,7 +45,7 @@ public class AlermSetting {
 	    builder.setWhen(System.currentTimeMillis());
 	    
         //’Ê’m‰¹
-        String url = p.getString("ringtone_list", "");
+        String url = p.getString(context.getString(R.string.ringtone_pref),context.getString(R.string.ringtone_default_value));
         if(url == null){
         }else{
         	builder.setSound(Uri.parse(url));

@@ -51,7 +51,7 @@ public class MyAlarmManager {
     	}
 
     	//‚É‚ñ‚½‚ÜƒAƒ‰[ƒ€‚Í•½“ú‚Ì‚İ
-    	if(alermTiming.equals("nintama")){
+    	if(alermTiming.equals(c.getString(R.string.alarm_nintama))){
     		if(calset.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY){
         		calset.add(Calendar.DATE, 2);
     		}
