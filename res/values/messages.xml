@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sakube_random">
+        <item>左門ー！　三之助ー！　どこだー！</item>
+    </string-array>
+
+    <string-array name="sakube_morning">
+        <item>おはよう！　今日も一日はりきって行くか！</item>
+    </string-array>
+
+    <string-array name="sakube_night">
+        <item>おやすみ。明日もがんばろうな！</item>
+    </string-array>
+        
+    <string-array name="sakube_weather" formatted="false">
+        <item>\n\n%sの天気は%sだな。</item>
+    </string-array>
+
+    <string-array name="sakube_rain">
+        <item>\n傘忘れるなよ！</item>
+        <item>\n傘あるよな？</item>
+    </string-array>
+
+    <string-array name="sakube_nintama">
+        <item>そろそろ忍たまがはじまるな。</item>
+    </string-array>
+    
+    <string-array name="samon_random">
+        <item>ここはどこだー！</item>
+    </string-array>
+
+    <string-array name="samon_morning">
+        <item>おはよう！　今日も進退は疑うなかれだー！</item>
+    </string-array>
+
+    <string-array name="samon_night">
+        <item>おやすみ！　いい夢みるんだぞー！　明日はこっちだー！！</item>
+    </string-array>
+        
+    <string-array name="samon_weather" formatted="false">
+        <item>\n\n%sの天気は%sだ！</item>
+    </string-array>
+
+    <string-array name="samon_rain">
+        <item>\n傘もってけー！</item>
+        <item>\n傘の用意は大丈夫か？</item>
+    </string-array>
+
+    <string-array name="samon_nintama">
+        <item>そろそろ忍たまだぞー！！　出番はどこだー！</item>
+    </string-array>
+    
+    <string-array name="sannosuke_random">
+        <item>あれ？　ここどこですか？</item>
+    </string-array>
+
+    <string-array name="sannosuke_morning">
+        <item>おはようございます。今日もがんばりましょうか。</item>
+    </string-array>
+
+    <string-array name="sannosuke_night">
+        <item>おやすみなさい。今日は一日お疲れさま。</item>
+    </string-array>
+        
+    <string-array name="sannosuke_weather" formatted="false">
+        <item>\n\n%sの天気は%sだね。</item>
+    </string-array>
+
+    <string-array name="sannosuke_rain">
+        <item>\n傘持って行ったほうがいいんじゃない？</item>
+        <item>\n傘どこにあったっけ？</item>
+    </string-array>
+
+    <string-array name="sannosuke_nintama">
+        <item>忍たまの時間だよ。</item>
+    </string-array>
+    
+    
+        
+    <string-array name="sakube_ticker_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="sakube_ticker_night">
+        <item>おやすみ！</item>
+    </string-array>
+        <string-array name="sakube_ticker_nintama">
+        <item>忍たま！</item>
+    </string-array>
+
+    <string-array name="samon_ticker_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="samon_ticker_night">
+        <item>おやすみ！</item>
+    </string-array>
+        <string-array name="samon_ticker_nintama">
+        <item>忍たま！</item>
+    </string-array>
+    
+    <string-array name="sannosuke_ticker_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="sannosuke_ticker_night">
+        <item>おやすみ！</item>
+    </string-array>
+    <string-array name="sannosuke_ticker_nintama">
+        <item>忍たま！</item>
+    </string-array>
+   
+    <string-array name="sakube_title_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="sakube_title_night">
+        <item>おやすみ！</item>
+    </string-array>
+        <string-array name="sakube_title_nintama">
+        <item>忍たま！</item>
+    </string-array>
+
+    <string-array name="samon_title_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="samon_title_night">
+        <item>おやすみ！</item>
+    </string-array>
+        <string-array name="samon_title_nintama">
+        <item>忍たま！</item>
+    </string-array>
+    
+    <string-array name="sannosuke_title_morning">
+        <item>おはよう！</item>
+    </string-array>
+    <string-array name="sannosuke_title_night">
+        <item>おやすみ！</item>
+    </string-array>
+    <string-array name="sannosuke_title_nintama">
+        <item>忍たま！</item>
+    </string-array>
+    
+    <string-array name="sakube_text_morning">
+        <item>起きてるか？</item>
+    </string-array>
+    <string-array name="sakube_text_night">
+        <item>そろそろ寝ろよ</item>
+    </string-array>
+        <string-array name="sakube_text_nintama">
+        <item>準備できたか？</item>
+    </string-array>
+
+    <string-array name="samon_text_morning">
+        <item>起きろー！</item>
+    </string-array>
+    <string-array name="samon_text_night">
+        <item>ぼくは寝ていない…</item>
+    </string-array>
+        <string-array name="samon_text_nintama">
+        <item>はじまるぞー！</item>
+    </string-array>
+    
+    <string-array name="sannosuke_text_morning">
+        <item>起きてください</item>
+    </string-array>
+    <string-array name="sannosuke_text_night">
+        <item>寝なくていいんですか？</item>
+    </string-array>
+    <string-array name="sannosuke_text_nintama">
+        <item>時間だよ</item>
+    </string-array>
+</resources>
+
+
