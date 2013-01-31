@@ -2,7 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-   <ImageView
+	<ImageView
        android:id="@+id/imageView1"
  	   android:layout_width="fill_parent"
   	   android:layout_height="fill_parent"
@@ -10,18 +10,35 @@
        android:layout_alignParentRight="true"
        android:background="@drawable/sakube" />
        
-   <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+	<ScrollView
+        android:id="@+id/scrollView1"
+    	android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-       	android:padding="20dp"
-		android:orientation="horizontal"
-        android:text=""
-        android:textSize="18sp" />
+	    android:padding="20dp"
+	    android:layout_marginBottom="210dp" >
+          
+		<TextView
+        	android:id="@+id/textView1"
+     		android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:text="あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん
+        				\n\nあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
+        	android:textSize="18sp" />
+          
+	</ScrollView>
        
-   <ImageButton
+	<ImageButton
         android:id="@+id/button_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

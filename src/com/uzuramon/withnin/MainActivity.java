@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 	private SharedPreferences p;
 	private Context c;
 	private Random r;
+	private View clickSetting;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends Activity {
     	c = getApplicationContext();
     	
     	//設定ボタンイベント
-        View clickSetting = findViewById(R.id.button_setting);
+        clickSetting = findViewById(R.id.button_setting);
         clickSetting.setOnClickListener(oCLforShowButton);
         
         //ランダム生成
@@ -54,6 +55,14 @@ public class MainActivity extends Activity {
     public void onRestart(){
     	super.onRestart();
     	setText();
+    }
+    
+    @Override
+    public void onDestroy(){
+    	super.onDestroy();
+	    imgv.setBackgroundDrawable(null);
+	    clickSetting.setOnClickListener(null);
+	    System.gc();
     }
     
     private String timing;
