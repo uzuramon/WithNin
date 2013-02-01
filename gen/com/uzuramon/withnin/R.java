@@ -70,6 +70,9 @@ public final class R {
         public static final int sakube=0x7f020004;
         public static final int samon=0x7f020005;
         public static final int sannosuke=0x7f020006;
+        public static final int small_sakube=0x7f020007;
+        public static final int small_samon=0x7f020008;
+        public static final int small_sannosuke=0x7f020009;
     }
     public static final class id {
         public static final int button_setting=0x7f090003;

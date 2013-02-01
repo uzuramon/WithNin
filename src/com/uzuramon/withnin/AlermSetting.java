@@ -1,10 +1,14 @@
 package com.uzuramon.withnin;
 
+import java.util.Random;
+
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -18,9 +22,13 @@ public class AlermSetting {
 		
         PendingIntent pi = PendingIntent.getActivity(context, 0, i, 0);
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
-       
+
+		Random r = new Random(System.currentTimeMillis());
+
         // LargeIcon の Bitmap を生成
         //Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher_samon);
+		//Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(),context.getResources().getIdentifier("small-" + character, "drawable", context.getPackageName()));
+		Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(),context.getResources().getIdentifier("ic_launcher_" + character, "drawable", context.getPackageName()));
 
 		 // NotificationBuilderを作成
 	    NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
@@ -32,15 +40,20 @@ public class AlermSetting {
 	    String[] text_talk =  context.getResources().getStringArray(context.getResources().getIdentifier(character + "_text_" + timing, "array", context.getPackageName()));
 
     	// ステータスバーに表示されるテキスト
-	    builder.setTicker(ticker_talk[0]);
+	    builder.setTicker(ticker_talk[r.nextInt(ticker_talk.length)]);
+
 	    // アイコン
-	    builder.setSmallIcon(context.getResources().getIdentifier("ic_launcher_" + character, "drawable", context.getPackageName()));
+	    builder.setSmallIcon(context.getResources().getIdentifier("small_" + character, "drawable", context.getPackageName()));
+	    
 	    // Notificationを開いたときに表示されるタイトル
-	    builder.setContentTitle(title_talk[0]);
+	    builder.setContentTitle(title_talk[r.nextInt(title_talk.length)]);
+	    
 	    // Notificationを開いたときに表示されるサブタイトル
-	    builder.setContentText(text_talk[0]);
+	    builder.setContentText(text_talk[r.nextInt(text_talk.length)]);
+
 	    // Notificationを開いたときに表示されるアイコン
-	    //builder.setLargeIcon(largeIcon);
+	    builder.setLargeIcon(largeIcon);
+	    
 	    // 通知するタイミング
 	    builder.setWhen(System.currentTimeMillis());
 	    

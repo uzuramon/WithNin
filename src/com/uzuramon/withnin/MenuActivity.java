@@ -24,7 +24,6 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
 
 	//設定
 	private SharedPreferences p;
-	private Context c;
 	
 	private Preference prefMorningCheck;
 	private Preference prefMorningTime;
@@ -45,8 +44,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     	super.onCreate(savedInstanceState);
     	addPreferencesFromResource(R.xml.pref);
 
-    	c = getApplicationContext();
-        p = PreferenceManager.getDefaultSharedPreferences(c);
+        p = PreferenceManager.getDefaultSharedPreferences( getApplicationContext());
         
     	//初回起動設定
     	firstListener();
@@ -351,7 +349,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     //アラームスタート・ストップ
     private void alermStart(String alermTiming){
     	CheckBoxPreference checkbox_preference = (CheckBoxPreference)getPreferenceScreen().findPreference(alermTiming + "_checkbox");
-        MyAlarmManager mam = new MyAlarmManager(c);
+        MyAlarmManager mam = new MyAlarmManager( getApplicationContext());
 
     	if (checkbox_preference.isChecked()) {
             mam.addAlarm(p.getInt(alermTiming + "_h", 0),p.getInt(alermTiming + "_m", 0),alermTiming); 
