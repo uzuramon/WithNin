@@ -3,13 +3,26 @@
 
     <string-array name="sakube_random">
         <item>左門ー！　三之助ー！　どこだー！</item>
+        <item>あ！　食満先輩！</item>
+        <item>平太！　いちいちびびるんじゃねえ！</item>
+        <item>しんべヱ、喜三太、そろそろ委員会だぞ。</item>
+        <item>どうした？</item>
+        <item>……迷子か？</item>
     </string-array>
 
     <string-array name="sakube_morning">
         <item>おはよう！　今日も一日はりきって行くか！</item>
+        <item>おはよう！　二度寝するなよ？</item>
+        <item>おはよう！　今日はあいつら迷子にならねえといいんだけど。</item>
+        <item>おはよう！　朝飯はちゃんと食えよ！</item>
+        <item>おはよう！　ちゃんと起きろよ。</item>
     </string-array>
 
     <string-array name="sakube_night">
+        <item>おやすみ。羊？　俺は数えねえよ！</item>
+        <item>おやすみ。ちゃんと寝ろよ。</item>
+        <item>おやすみ。もう寝るんだよな？</item>
+        <item>おやすみ。寝られないなら温かいものでも飲むか？</item>
         <item>おやすみ。明日もがんばろうな！</item>
     </string-array>
         
@@ -28,14 +41,28 @@
     
     <string-array name="samon_random">
         <item>ここはどこだー！</item>
+        <item>食堂はあっちだー！</item>
+        <item>……海？</item>
+        <item>田村先輩！　委員会室はそっちじゃありませんよ！</item>
+        <item>作兵衛どこだー！　食堂行くぞー！</item>
+        <item>三之助が見つからない。また迷子かー！</item>
+        <item>孫兵ー！　ジュンコ連れてきたぞー！</item>
     </string-array>
 
     <string-array name="samon_morning">
         <item>おはよう！　今日も進退は疑うなかれだー！</item>
+        <item>おはよう！　ギンギンにがんばるぞー！</item>
+        <item>おはよう！　朝飯はちゃんと食べろー！　なにもないならおにぎりをやるぞー！</item>
+        <item>おはよう！　ぼくは徹夜だったぞ……。</item>
+        <item>おはよう！　二度寝はだめだぞー！</item>
     </string-array>
 
     <string-array name="samon_night">
         <item>おやすみ！　いい夢みるんだぞー！　明日はこっちだー！！</item>
+        <item>おやすみ！　さて、ぼくはこれから委員会だー！</item>
+        <item>おやすみ！　眠れないときは羊を数えるといいぞー！　羊が一匹、羊が二匹……ぐー。</item>
+        <item>おやすみ！　夜更かししないで寝ろー！</item>
+        <item>おやすみ！　僕も眠くなってきた……。</item>
     </string-array>
         
     <string-array name="samon_weather" formatted="false">
@@ -53,14 +80,26 @@
     
     <string-array name="sannosuke_random">
         <item>あれ？　ここどこですか？</item>
+        <item>作兵衛？　左門？　おかしいな、二人とも迷子かな。</item>
+        <item>七松先輩！　お手玉は無理です！</item>
+        <item>滝夜叉丸先輩、四郎兵衛、また電車ごっこするんですか？</item>
+        <item>縄なんてなくても迷子にならないよ。</item>
     </string-array>
 
     <string-array name="sannosuke_morning">
         <item>おはようございます。今日もがんばりましょうか。</item>
+        <item>おはようございます。二度寝したら知らないよ。</item>
+        <item>おはようございます。ちゃんと朝飯食ってくださいね。</item>
+        <item>おはようございます。今日もいけいけどんどーん！　って感じでいいんじゃないですかね。</item>
+        <item>おはようございます。俺はもう早朝トレーニングしてきたよ。</item>
     </string-array>
 
     <string-array name="sannosuke_night">
         <item>おやすみなさい。今日は一日お疲れさま。</item>
+        <item>おやすみなさい。もう寝ないとダメですよ。</item>
+        <item>おやすみなさい。明日もはやいんでしょ？</item>
+        <item>おやすみなさい。羊は左門に数えてもらって。</item>
+        <item>おやすみなさい。俺ももう寝るよ。</item>
     </string-array>
         
     <string-array name="sannosuke_weather" formatted="false">
