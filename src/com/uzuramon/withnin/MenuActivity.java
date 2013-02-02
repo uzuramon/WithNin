@@ -104,7 +104,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     		p.edit().putInt("morning_h", 7).commit();
    		}
     	if(p.getInt("morning_m", 99) == 99){
-    		p.edit().putInt("nintama_m", 0).commit();
+    		p.edit().putInt("morning_m", 0).commit();
    		}
     	if(p.getInt("night_h", 99) == 99){
     		p.edit().putInt("night_h", 22).commit();
