@@ -75,7 +75,7 @@
 			android:defaultValue="false"
             android:summary="" />
 		<RingtonePreference   
-			android:key="@string/ringtone_pref"
+			android:key="ringtone_pref"
 			android:title="通知音"
 			android:summary="サイレント"
 			android:defaultValue=""

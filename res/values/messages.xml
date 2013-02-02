@@ -34,7 +34,11 @@
         <item>\n傘忘れるなよ！</item>
         <item>\n傘あるよな？</item>
     </string-array>
-
+    
+    <string-array name="sakube_cal" formatted="false">
+        <item>\n\n%sの予定はこんな感じだな。\n</item>
+    </string-array>
+    
     <string-array name="sakube_nintama">
         <item>そろそろ忍たまがはじまるな。</item>
     </string-array>
@@ -73,7 +77,11 @@
         <item>\n傘もってけー！</item>
         <item>\n傘の用意は大丈夫か？</item>
     </string-array>
-
+    
+    <string-array name="samon_cal" formatted="false">
+        <item>\n\n%sの予定だぞー！\n</item>
+    </string-array>
+    
     <string-array name="samon_nintama">
         <item>そろそろ忍たまだぞー！！　出番はどこだー！</item>
     </string-array>
@@ -109,8 +117,12 @@
     <string-array name="sannosuke_rain">
         <item>\n傘持って行ったほうがいいんじゃない？</item>
         <item>\n傘どこにあったっけ？</item>
+	</string-array>
+	
+	<string-array name="sannosuke_cal" formatted="false">
+        <item>\n\n%sの予定です。\n</item>
     </string-array>
-
+    
     <string-array name="sannosuke_nintama">
         <item>忍たまの時間だよ。</item>
     </string-array>

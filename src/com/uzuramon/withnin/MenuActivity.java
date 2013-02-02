@@ -45,6 +45,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
     	addPreferencesFromResource(R.xml.pref);
 
         p = PreferenceManager.getDefaultSharedPreferences( getApplicationContext());
+        p.edit().commit();
         
     	//初回起動設定
     	firstListener();
@@ -90,7 +91,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
        	prefLedCheck.setOnPreferenceClickListener(onPreferenceClickListener);
 
     	//通知音設定クリック待ちリスナー
-        prefRingtone = (RingtonePreference)findPreference(getString(R.string.ringtone_pref));   
+        prefRingtone = (RingtonePreference)findPreference("ringtone_pref");   
         prefRingtone.setOnPreferenceChangeListener(ringtonePreference_OnPreferenceChangeListener);  
 
 		Log.v(getString(R.string.log),"MenuActivity　setText end");
@@ -189,8 +190,8 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
             
     //通知音のサマリー表示設定（プリセット）
     private void ringtonePreference_OnPreferenceChange(){     
-    	Preference ring_preference = (Preference)getPreferenceScreen().findPreference(getString(R.string.ringtone_pref));
-    	String url = p.getString(getString(R.string.ringtone_pref), getString(R.string.ringtone_default_value)); 
+    	Preference ring_preference = (Preference)getPreferenceScreen().findPreference("ringtone_pref");
+    	String url = p.getString("ringtone_pref",""); 
     	
     	ringtonePreference_OnPreferenceChange(ring_preference,url);
     	/*
@@ -211,6 +212,7 @@ public class MenuActivity extends PreferenceActivity implements OnSharedPreferen
         String url = (String)newValue; 
         Uri uri;  
         Ringtone ringtone;  
+        
         if ("".equals(url)) {
             preference.setSummary("サイレント");
         } else {

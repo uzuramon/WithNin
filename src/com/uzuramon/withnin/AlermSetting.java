@@ -10,18 +10,16 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 public class AlermSetting {
 
-	public void setNortification(Context context,Intent i,String timing,String character){
+	public void setNortification(Context context,Intent i,String timing,String character,SharedPreferences p){
 
 		Log.v(context.getString(R.string.log),"setNortification start");
 		
         PendingIntent pi = PendingIntent.getActivity(context, 0, i, 0);
-        SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
 
 		Random r = new Random(System.currentTimeMillis());
 
@@ -58,7 +56,7 @@ public class AlermSetting {
 	    builder.setWhen(System.currentTimeMillis());
 	    
         //í ímâπ
-        String url = p.getString(context.getString(R.string.ringtone_pref),context.getString(R.string.ringtone_default_value));
+        String url = p.getString("ringtone_pref","");
         if(url == null){
         }else{
         	builder.setSound(Uri.parse(url));
@@ -83,9 +81,9 @@ public class AlermSetting {
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         nm.notify(1, builder.build()); // ê›íËÇµÇΩNotificationÇí ímÇ∑ÇÈ
 
-		Log.v(context.getString(R.string.log),"setNortification end");
-
+        Log.v(context.getString(R.string.log),"setNortification end");
 	}
+	
 
 
 }

@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.READ_CALENDAR" />
     
     <application
         android:allowBackup="true"
@@ -31,12 +32,6 @@
         <activity android:name=".MenuActivity" android:label="@string/app_name">
      	</activity>
  
-        <receiver android:name=".MyAlarmReceiver" android:process=":remote">
-           <intent-filter>
-                <action android:name="MyAlarmAction"/>
-            </intent-filter>
-        </receiver>
-		
         <service android:name=".MyAlarmService"></service>
         
 	    <receiver android:name=".BootAlarmReceiver">

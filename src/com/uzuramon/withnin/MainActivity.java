@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,6 +62,7 @@ public class MainActivity extends Activity {
 		String timing = getIntent().getStringExtra(getString(R.string.timing));
 		String character = getIntent().getStringExtra(getString(R.string.character));
 		String wether = getIntent().getStringExtra(getString(R.string.weather));
+		String cal = getIntent().getStringExtra(getString(R.string.calendar));
 
     	//画面部品取得
     	imgv = (ImageView)findViewById(R.id.imageView1);
@@ -89,6 +89,7 @@ public class MainActivity extends Activity {
 		String[] night_talk = getResources().getStringArray(getResources().getIdentifier(character + "_night", "array", getPackageName()));
 		String[] weather_talk = getResources().getStringArray(getResources().getIdentifier(character + "_weather", "array", getPackageName()));
 		String[] rain_talk = getResources().getStringArray(getResources().getIdentifier(character + "_rain", "array", getPackageName()));
+		String[] cal_talk = getResources().getStringArray(getResources().getIdentifier(character + "_cal", "array", getPackageName()));
 		String[] nintama_talk = getResources().getStringArray(getResources().getIdentifier(character + "_nintama", "array", getPackageName()));
 
 	    //キャラクター画像設定
@@ -113,6 +114,10 @@ public class MainActivity extends Activity {
 
         		}
         	}
+			
+			if(!(cal.equals(""))){
+				text = text + String.format(cal_talk[r.nextInt(cal_talk.length)],getString(R.string.today_name)) +  cal;
+			}
 
     	//おやすみ
         }else if(timing.equals(getString(R.string.alarm_night))){
@@ -126,7 +131,11 @@ public class MainActivity extends Activity {
 
         		}
         	}
-    	
+
+			if(!(cal.equals(""))){
+				text = text + String.format(cal_talk[r.nextInt(cal_talk.length)],getString(R.string.tomorrow_name)) +  cal;
+			}
+
     	//にんたま
         }else if(timing.equals(getString(R.string.alarm_nintama))){
 			text = nintama_talk[r.nextInt(nintama_talk.length)];
