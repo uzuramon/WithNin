@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
     			text = text + String.format(weather_talk[r.nextInt(weather_talk.length)],getString(R.string.tomorrow_name),wether);
 
         		if((wether.indexOf("âJ") != -1) || (wether.indexOf("ê·") != -1)){
-        			text = rain_talk[r.nextInt(rain_talk.length)];
+        			text = text + rain_talk[r.nextInt(rain_talk.length)];
 
         		}
         	}
