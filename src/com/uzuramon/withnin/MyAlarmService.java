@@ -75,18 +75,31 @@ public class MyAlarmService extends Service {
 	    //設定の取得
     	SharedPreferences p =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	    
-    	//天気取得
     	String weather = "";
-    	String text = "";
+    	String caltext = "";
+    	String days24 = "";
+    	String days72 = "";
+    	String dayssetsu = "";
 
     	if((timing.equals(getString(R.string.alarm_morning))) || (timing.equals(getString(R.string.alarm_night)))){
+        	//天気取得
     		weather = WeatherUpdate(Integer.parseInt(p.getString(getString(R.string.weather_pref),getString(R.string.weather_default_value))),timing);
         	//カレンダー取得
-        	text = getCalendar(timing);
+    		caltext = getCalendar(timing);
+        	//暦取得
+			Calendar today = Calendar.getInstance();
+			SimpleDateFormat daysFormat = new SimpleDateFormat("yyyyMMdd");
+			if(timing.equals(getString(R.string.alarm_night))){
+				today.add(Calendar.DATE, 1);
+			}
+   			days24 = getDays(daysFormat.format(today.getTime()),"days24");
+   			days72 = getDays(daysFormat.format(today.getTime()),"days72");
+   			dayssetsu = getZassetsu(daysFormat.format(today.getTime()),"daysother");
     	}
+    	
 
     	//通知の設定
-    	setNotification(timing,weather,text,p);
+    	setNotification(timing,weather,caltext,days24,days72,dayssetsu,p);
 
         MyAlarmService.this.stopSelf();//サービスを止める
         
@@ -258,9 +271,47 @@ public class MyAlarmService extends Service {
     	 
     	return text;
     }
+
+    //暦取得
+    public String getDays(String today,String koyomi){
+    	
+	    String[] days_list =  getResources().getStringArray(getResources().getIdentifier(koyomi + "_list_date", "array", getPackageName()));
+	    String[] days_value =  getResources().getStringArray(getResources().getIdentifier(koyomi + "_list_value", "array", getPackageName()));
+	    String days_num = "";
+	    
+	    for(int i=0; i<days_list.length; i++){
+	    	if(today.compareTo(days_list[i]) < 0){
+	    		days_num = days_value[i - 1];
+	    		break;
+	    	}
+	    }
+	    
+	    return days_num;
+    }
+
+    //雑節取得
+    public String getZassetsu(String today,String koyomi){
+    	
+	    String[] days_list =  getResources().getStringArray(getResources().getIdentifier(koyomi + "_list_date", "array", getPackageName()));
+	    String[] days_value =  getResources().getStringArray(getResources().getIdentifier(koyomi + "_list_value", "array", getPackageName()));
+	    String days_num = "";
+	    
+	    for(int i=0; i<days_list.length; i++){
+	    	Log.v("days_list_today",String.valueOf(today));
+	    	Log.v("days_list",String.valueOf(days_list[i]));
+	    	if(today.compareTo(days_list[i]) == 0){
+	    		days_num = days_value[i];
+	    		break;
+	    	}
+	    }
+	    
+	    return days_num;
+    }
+
+    
     
     //通知の設定
-    public void setNotification(String timing,String weather,String text,SharedPreferences p){
+    public void setNotification(String timing,String weather,String caltext,String days24,String days72,String dayssetsu,SharedPreferences p){
 		Log.v(getString(R.string.log),"setNotification start");
 
     	//キャラクターゲット
@@ -281,8 +332,10 @@ public class MyAlarmService extends Service {
     	intAct.putExtra(getString(R.string.timing),timing);
     	intAct.putExtra(getString(R.string.character),character);
     	intAct.putExtra(getString(R.string.weather),weather);
-    	intAct.putExtra(getString(R.string.calendar),text);
-    	
+    	intAct.putExtra(getString(R.string.calendar),caltext);
+    	intAct.putExtra(getString(R.string.days24),days24);
+    	intAct.putExtra(getString(R.string.days72),days72);
+    	intAct.putExtra(getString(R.string.daysother),dayssetsu);
 
     	//アラームの再設定
     	MyAlarmManager mam = new MyAlarmManager(getApplicationContext());

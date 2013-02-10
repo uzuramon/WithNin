@@ -13,7 +13,10 @@
     <string name="weather">WEATHER</string>
     <string name="character">CHARACTER</string>
     <string name="calendar">CALENDAR</string>
-    
+    <string name="days24">DAYS24</string>
+    <string name="days72">DAYS72</string>
+    <string name="daysother">DAYSOTHER</string>
+        
     <string name="alarm_morning">morning</string>
     <string name="alarm_night">night</string>
     <string name="alarm_nintama">nintama</string>

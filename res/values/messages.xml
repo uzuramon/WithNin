@@ -49,6 +49,10 @@
         <item>そろそろ忍たまがはじまるな。</item>
     </string-array>
     
+    <string-array name="sakube_koyomi">
+        <item>\n\n【%sの暦】</item>
+    </string-array>
+    
     <string-array name="samon_random">
         <item>ここはどこだー！</item>
         <item>食堂はあっちだー！</item>
@@ -99,6 +103,11 @@
         <item>そろそろ忍たまだぞー！！\n出番はどこだー！</item>
     </string-array>
     
+    <string-array name="samon_koyomi">
+        <item>\n\n【%sの暦】</item>
+    </string-array>
+    
+    
     <string-array name="sannosuke_random">
         <item>あれ？\nここどこですか？</item>
         <item>ちょっと走ってこようかな。</item>
@@ -148,6 +157,9 @@
         <item>忍たまの時間だよ。</item>
     </string-array>
     
+    <string-array name="sannosuke_koyomi">
+        <item>\n\n【%sの暦】</item>
+    </string-array>
     
         
     <string-array name="sakube_ticker_morning">

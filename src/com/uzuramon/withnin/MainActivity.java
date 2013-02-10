@@ -63,6 +63,14 @@ public class MainActivity extends Activity {
 		String character = getIntent().getStringExtra(getString(R.string.character));
 		String wether = getIntent().getStringExtra(getString(R.string.weather));
 		String cal = getIntent().getStringExtra(getString(R.string.calendar));
+		String days24 = getIntent().getStringExtra(getString(R.string.days24));
+		String days72 = getIntent().getStringExtra(getString(R.string.days72));
+		String daysother = getIntent().getStringExtra(getString(R.string.daysother));
+		
+		//暦取得
+		String[] days24_name = getResources().getStringArray(getResources().getIdentifier("days24_list_name", "array", getPackageName()));
+		String[] days72_name = getResources().getStringArray(getResources().getIdentifier("days72_list_name", "array", getPackageName()));
+		String[] daysother_name = getResources().getStringArray(getResources().getIdentifier("daysother_list_name", "array", getPackageName()));
 
     	//画面部品取得
     	imgv = (ImageView)findViewById(R.id.imageView1);
@@ -91,6 +99,8 @@ public class MainActivity extends Activity {
 		String[] rain_talk = getResources().getStringArray(getResources().getIdentifier(character + "_rain", "array", getPackageName()));
 		String[] cal_talk = getResources().getStringArray(getResources().getIdentifier(character + "_cal", "array", getPackageName()));
 		String[] nintama_talk = getResources().getStringArray(getResources().getIdentifier(character + "_nintama", "array", getPackageName()));
+		String[] koyomi_talk = getResources().getStringArray(getResources().getIdentifier(character + "_koyomi", "array", getPackageName()));
+		
 
 	    //キャラクター画像設定
 	    imgv.setBackgroundDrawable(getResources().getDrawable(getResources().getIdentifier(character, "drawable", getPackageName())));	
@@ -119,7 +129,18 @@ public class MainActivity extends Activity {
 				text = text + String.format(cal_talk[r.nextInt(cal_talk.length)],getString(R.string.today_name)) +  cal;
 			}
 
-    	//おやすみ
+			if(!(days24.equals(""))){
+				text = text + String.format(koyomi_talk[r.nextInt(koyomi_talk.length)],getString(R.string.today_name));
+				text = text + "\n" + days24_name[Integer.parseInt(days24)];
+			}
+			if(!(days72.equals(""))){
+				text = text + "\n" + days72_name[Integer.parseInt(days72)];
+			}
+			if((!(daysother.equals(""))) && (!(daysother.equals("0")))){
+				text = text + "\n" + daysother_name[Integer.parseInt(daysother)];
+			}
+
+			//おやすみ
         }else if(timing.equals(getString(R.string.alarm_night))){
 			text = night_talk[r.nextInt(night_talk.length)];
 
@@ -134,6 +155,17 @@ public class MainActivity extends Activity {
 
 			if(!(cal.equals(""))){
 				text = text + String.format(cal_talk[r.nextInt(cal_talk.length)],getString(R.string.tomorrow_name)) +  cal;
+			}
+
+			if(!(days24.equals("0"))){
+				text = text + String.format(koyomi_talk[r.nextInt(koyomi_talk.length)],getString(R.string.tomorrow_name));
+				text = text + "\n" + days24_name[Integer.parseInt(days24)];
+			}
+			if(!(days72.equals("0"))){
+				text = text + "\n" + days72_name[Integer.parseInt(days72)];
+			}
+			if((!(daysother.equals(""))) && (!(daysother.equals("0")))){
+				text = text + "\n" + daysother_name[Integer.parseInt(daysother)];
 			}
 
     	//にんたま
