@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="weather_title" formatted="false">
+        <item>\n\n■%sの天気■</item>
+    </string-array>
+    
+    <string-array name="koyomi_title" formatted="false">
+        <item>\n\n■%sの暦■</item>
+    </string-array>
+    
+    <string-array name="cal_title" formatted="false">
+        <item>\n\n■%sの予定■</item>
+    </string-array>
+        
     <string-array name="sakube_random">
         <item>左門ー！三之助ー！\nどこだー！</item>
         <item>あいつら、また迷子になりやがって……！</item>
@@ -19,6 +31,9 @@
         <item>おはよう！\n朝飯はちゃんと食えよ！</item>
         <item>おはよう！\nちゃんと起きろよ。</item>
         <item>おはよう！\nおい、布団からでねえと二度寝すんぞ。</item>
+        <item>おはよう！\n今日の朝飯なんだろうな。</item>
+        <item>おはよう！\n目、覚めてるよな？</item>
+        <item>おはよう！\n楽しい一日にしような！</item>
     </string-array>
 
     <string-array name="sakube_night">
@@ -27,30 +42,25 @@
         <item>おやすみ。\nもう寝るんだよな？</item>
         <item>おやすみ。\n眠れないなら茶でも飲むか？</item>
         <item>おやすみ。\n寝られるときに寝るのも忍者の仕事のうち、だよな。</item>
+        <item>おやすみ。\n眠くなくても布団に入ってれば、そのうち眠くなるぞ。</item>
+        <item>おやすみ。\n明日も楽しい日にしような。</item>
+        <item>おやすみ。\nふぁ……。俺は左門と三之助が帰ってきたら寝るよ。</item>
         <item>おやすみ。\n明日もがんばろうな！</item>
     </string-array>
         
-    <string-array name="sakube_weather" formatted="false">
-        <item>\n\n%sの天気は%sだな。</item>
-        </string-array>
-
     <string-array name="sakube_rain">
         <item>\n外出するなら傘忘れるなよ！</item>
         <item>\n風邪ひかないように傘持っていけよ。</item>
     </string-array>
     
     <string-array name="sakube_cal" formatted="false">
-        <item>\n\n%sの予定だ。忘れるなよ！\n</item>
-        <item>\n\n%sの予定はこんな感じだな。\n</item>
-        <item>\n\n%sは忙しいのか？\n</item>
+        <item>\n予定、忘れるんじゃねえぞ！</item>
+        <item>\n忙しくても休憩はしろよ。</item>
+        <item>\n無理すんじゃねえぞ。</item>
     </string-array>
     
     <string-array name="sakube_nintama">
         <item>そろそろ忍たまがはじまるな。</item>
-    </string-array>
-    
-    <string-array name="sakube_koyomi">
-        <item>\n\n【%sの暦】</item>
     </string-array>
     
     <string-array name="samon_random">
@@ -71,6 +81,9 @@
         <item>おはよう！\nぼくは徹夜だったぞ……。</item>
         <item>おはよう！\nとにかく、布団から出るんだ！</item>
         <item>おはよう！\n布団の誘惑になど負けない……負けない……ぐー。</item>
+        <item>おはよう！\n起きろー！起きるんだー！</item>
+        <item>おはよう！\n今日も楽しい日にするぞー！今日はこっちだー！</item>
+        <item>おはよう！\n作兵衛！三之助！朝飯だぞー！</item>
         <item>おはよう！\n二度寝はだめだぞー！</item>
     </string-array>
 
@@ -81,30 +94,24 @@
         <item>おやすみ！\n寝られる日は寝たほうがいいぞ！\nぼくはそう思う！</item>
         <item>おやすみ！\n夜更かししないで寝ろー！</item>
         <item>おやすみ！\nとにかく、布団に入るんだ！</item>
+        <item>おやすみ！\n三之助はもう寝てるのか！ぼくも寝るぞー！</item>
+        <item>おやすみ！\n作兵衛、作兵衛、寝るから羊数えてくれ！</item>
         <item>おやすみ！\nぼくも眠くなってきた……。</item>
     </string-array>
         
-    <string-array name="samon_weather" formatted="false">
-        <item>\n\n%sの天気は%sだ！</item>
-    </string-array>
-
     <string-array name="samon_rain">
         <item>\n外行くときは傘もってけー！</item>
         <item>\nたまにはカッパもいいかもなー！</item>
     </string-array>
     
     <string-array name="samon_cal" formatted="false">
-        <item>\n\n%sの予定だぞー！\n</item>
-        <item>\n\n%sはいろいろありそうだな！\n</item>
-        <item>\n\n%sの予定だー！忘れるなー！\n</item>
+        <item>\nちゃんと休憩もとるんだぞー！</item>
+        <item>\n忙しそうだけど、無理するなー！</item>
+        <item>\n予定忘れるなー！</item>
     </string-array>
     
     <string-array name="samon_nintama">
         <item>そろそろ忍たまだぞー！！\n出番はどこだー！</item>
-    </string-array>
-    
-    <string-array name="samon_koyomi">
-        <item>\n\n【%sの暦】</item>
     </string-array>
     
     
@@ -125,6 +132,9 @@
         <item>おはようございます。\nちょっと体操でもします？</item>
         <item>おはようございます。\nちゃんと朝飯食ってくださいね。</item>
         <item>おはようございます。\n今日もいけいけどんどーん！って感じでいいんじゃないですかね。</item>
+        <item>おはようございます。\n左門、朝からどこ行くの？</item>
+        <item>おはようございます。\n左門も作兵衛も起きろー。</item>
+        <item>おはようございます。\n今日も楽しい日にしようね。</item>
         <item>おはようございます。\n俺はもう早朝トレーニングしてきたよ。</item>
     </string-array>
 
@@ -135,30 +145,25 @@
         <item>おやすみなさい。\n布団に入って大人しくしてたらすぐ寝れますって。</item>
         <item>おやすみなさい。\n明日もはやいんでしょ？</item>
         <item>おやすみなさい。\n羊は左門に数えてもらって。</item>
+        <item>おやすみなさい。\n作兵衛、作兵衛、寝るから何か話してよ。</item>
+        <item>おやすみなさい。\n左門、今日は委員会ないのにどこ行くんだ？</item>
+        <item>おやすみなさい。\n明日も楽しい日にしようね。</item>
         <item>おやすみなさい。\n俺ももう寝るよ。</item>
     </string-array>
         
-    <string-array name="sannosuke_weather" formatted="false">
-        <item>\n\n%sの天気は%sだね。</item>
-    </string-array>
-
     <string-array name="sannosuke_rain">
         <item>\n外行くなら傘持って行ったほうがいいんじゃない？</item>
         <item>\nあれ？傘どこにあったっけ？</item>
 	</string-array>
 	
 	<string-array name="sannosuke_cal" formatted="false">
-        <item>\n\n%sの予定だよ。\n</item>
-        <item>\n\n%sの予定。忘れないようにね。\n</item>
-        <item>\n\n%sは忙しそう？\n</item>
+        <item>\nがんばってね。</item>
+        <item>\n予定、忘れないようにね。</item>
+        <item>\nあれ？　結構忙しそう？</item>
    </string-array>
     
     <string-array name="sannosuke_nintama">
         <item>忍たまの時間だよ。</item>
-    </string-array>
-    
-    <string-array name="sannosuke_koyomi">
-        <item>\n\n【%sの暦】</item>
     </string-array>
     
         

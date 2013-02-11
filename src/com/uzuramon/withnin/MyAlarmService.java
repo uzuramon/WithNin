@@ -14,6 +14,9 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 
 import android.annotation.SuppressLint;
@@ -75,7 +78,7 @@ public class MyAlarmService extends Service {
 	    //設定の取得
     	SharedPreferences p =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	    
-    	String weather = "";
+    	String[] weather = new String[3];
     	String caltext = "";
     	String days24 = "";
     	String days72 = "";
@@ -99,7 +102,7 @@ public class MyAlarmService extends Service {
     	
 
     	//通知の設定
-    	setNotification(timing,weather,caltext,days24,days72,dayssetsu,p);
+    	setNotification(timing,weather[0],weather[1],weather[2],caltext,days24,days72,dayssetsu,p);
 
         MyAlarmService.this.stopSelf();//サービスを止める
         
@@ -109,52 +112,78 @@ public class MyAlarmService extends Service {
     
 
 	//天気予報更新
-    public String WeatherUpdate(int wetherPoint, String timing) {
+    public String[] WeatherUpdate(int wetherPoint, String timing) {
 
 		Log.v(getString(R.string.log),"WeatherUpdate　start" + timing);
+    	String[] telop = new String[3];
+    	telop[0] = "";
+    	telop[1] = "";
+    	telop[2] = "";
+
+    	String[] point_list =  getResources().getStringArray(getResources().getIdentifier("weather_list_point", "array", getPackageName()));
+    	
+    	HttpClient httpClient = new DefaultHttpClient();
+    	 
+    	StringBuilder uri = new StringBuilder("http://weather.livedoor.com/forecast/webservice/json/v1?city=" + point_list[wetherPoint]);
+    	HttpGet request = new HttpGet(uri.toString());
+    	HttpResponse httpResponse = null;
+    	 
+    	try {
+    	    httpResponse = httpClient.execute(request);
+    	} catch (Exception e) {
+    	    Log.d("JSONSampleActivity", "Error Execute");
+    	}
+    	 
+    	int status = httpResponse.getStatusLine().getStatusCode();
+
+        String data = null;
+
+    	if (HttpStatus.SC_OK == status) {
+    	    try {
+    	        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    	        httpResponse.getEntity().writeTo(outputStream);
+    	        data = outputStream.toString(); // JSONデータ
+    	    } catch (Exception e) {
+    	          Log.d("JSONSampleActivity", "Error");
+    	    }
+    	} else {
+    	    Log.d("JSONSampleActivity", "Status" + status);
+    	}
 
     	String day = "";
-    	if(timing.equals(getString(R.string.alarm_morning))){
-    		day="today";
+		if(timing.equals(getString(R.string.alarm_morning))){
+    		day="今日";
     	}else{
-    		day="tomorrow";
+    		day="明日";
     	}
-    	String telop = "";
-        String weburl = "http://weather.livedoor.com/forecast/webservice/rest/v1?city=" + wetherPoint  + "&day=" + day;
 
-        HttpResponse httpResponse;
-        HttpClient httpClient = new DefaultHttpClient();
+    	JSONObject rootObject = null;
+		JSONArray eventArray = null;
+	    JSONObject jsonObject = null;
+		try {
+			rootObject = new JSONObject(data);
+			eventArray = rootObject.getJSONArray("forecasts");
+			for (int i = 0; i < eventArray.length(); i++) {
+			    jsonObject = eventArray.getJSONObject(i);
+				
+				if(jsonObject.getString("dateLabel").equals(day)){
+					telop[0] = jsonObject.getString("telop");
+
+				    if(!(jsonObject.getJSONObject("temperature").getString("min").equals("null"))){
+						telop[1] = jsonObject.getJSONObject("temperature").getJSONObject("min").getString("celsius");
+					}
+					
+				    if(!(jsonObject.getJSONObject("temperature").getString("max").equals("null"))){
+						telop[2] = jsonObject.getJSONObject("temperature").getJSONObject("max").getString("celsius");
+					}
+				}
+
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
  
-        try {
-            //天気予報のＷＥＢサービスから予報取得
-            httpResponse = httpClient.execute(new HttpGet(weburl));  
-            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-            	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                httpResponse.getEntity().writeTo(outputStream);
-                //XMLから各情報を抽出
-                XmlPullParser xppr = Xml.newPullParser();
-                xppr.setInput(new StringReader(outputStream.toString()));
-        		int eventType;
-                while ((eventType = xppr.next()) != XmlPullParser.END_DOCUMENT) {
-                    //天気予報
-                    if (eventType == XmlPullParser.START_TAG && "telop".equals(xppr.getName())) {
-                        telop =  xppr.nextText();
-                    }
-                }
-            }
-
-        } catch (ClientProtocolException e) {
-            Log.e(getString(R.string.log), "clientProtocol", e);
-        } catch (IOException e) {
-            Log.e(getString(R.string.log), "IOException", e);
-        } catch(Exception e){
-            Log.e(getString(R.string.log), "Exception", e);
-        }finally {
-            // ここではfinallyでshutdown()しているが、HttpClientを使い回す場合は、
-            // 適切なところで行うこと。当然だがshutdown()したインスタンスは通信できなくなる。
-            httpClient.getConnectionManager().shutdown();
-        }
-
 		Log.v(getString(R.string.log),"WeatherUpdate　end");
         
         return telop;
@@ -231,7 +260,7 @@ public class MyAlarmService extends Service {
        			    // Get the field values
        			    title = cur.getString(PROJECTION_TITLE_INDEX);
        			    
-       			    text = text + "終日：" + title + "\n";
+       			    text = text + "\n終日：" + title;
        			}
 
        			//時間帯
@@ -261,7 +290,7 @@ public class MyAlarmService extends Service {
       			    calendarE.setTimeInMillis(endVal);
        			    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 
-       			    text = text + formatter.format(calendarS.getTime()) + "-" + formatter.format(calendarE.getTime()) + "：" + title + "\n";
+       			    text = text + "\n" + formatter.format(calendarS.getTime()) + "-" + formatter.format(calendarE.getTime()) + "：" + title;
    			    }
         			              
          } else {
@@ -297,8 +326,6 @@ public class MyAlarmService extends Service {
 	    String days_num = "";
 	    
 	    for(int i=0; i<days_list.length; i++){
-	    	Log.v("days_list_today",String.valueOf(today));
-	    	Log.v("days_list",String.valueOf(days_list[i]));
 	    	if(today.compareTo(days_list[i]) == 0){
 	    		days_num = days_value[i];
 	    		break;
@@ -311,7 +338,7 @@ public class MyAlarmService extends Service {
     
     
     //通知の設定
-    public void setNotification(String timing,String weather,String caltext,String days24,String days72,String dayssetsu,SharedPreferences p){
+    public void setNotification(String timing,String weather,String minKion,String maxKion,String caltext,String days24,String days72,String dayssetsu,SharedPreferences p){
 		Log.v(getString(R.string.log),"setNotification start");
 
     	//キャラクターゲット
@@ -332,6 +359,8 @@ public class MyAlarmService extends Service {
     	intAct.putExtra(getString(R.string.timing),timing);
     	intAct.putExtra(getString(R.string.character),character);
     	intAct.putExtra(getString(R.string.weather),weather);
+    	intAct.putExtra(getString(R.string.minKion),minKion);
+    	intAct.putExtra(getString(R.string.maxKion),maxKion);
     	intAct.putExtra(getString(R.string.calendar),caltext);
     	intAct.putExtra(getString(R.string.days24),days24);
     	intAct.putExtra(getString(R.string.days72),days72);

@@ -11,6 +11,8 @@
 
     <string name="timing">TIMING</string>
     <string name="weather">WEATHER</string>
+    <string name="minKion">MINKION</string>
+    <string name="maxKion">MAXKION</string>
     <string name="character">CHARACTER</string>
     <string name="calendar">CALENDAR</string>
     <string name="days24">DAYS24</string>
